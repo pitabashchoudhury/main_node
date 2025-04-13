@@ -9,12 +9,18 @@ const app = express();
 
 // Middleware
 const corsOptions = {
-  origin: "http://pitabash.com", // only allow this origin
+  origin: "http://localhost:3000", // only allow this origin
   methods: ["GET", "POST"], // only allow certain methods
   credentials: true, // allow cookies (for sessions)
 };
 
 app.use(cors(corsOptions));
+// app.use(cors({
+//   origin: 'http://localhost:3000',
+//   methods: ["GET", "POST"],
+//   credentials: true,              // allow cookies/sessions
+// }));
+
 app.use(express.json());
 
 // Connect to MongoDB
