@@ -1,4 +1,8 @@
-const { registerUser, getUserByEmail,getAllUsers } = require("../services/user_services");
+const {
+  registerUser,
+  getUserByEmail,
+  getAllUsers,
+} = require("../services/user_services");
 
 const createUser = async (req, res, next) => {
   try {
@@ -9,7 +13,7 @@ const createUser = async (req, res, next) => {
   }
 };
 
-const getUsers = async (req, res,next) => {
+const getUsers = async (req, res, next) => {
   try {
     const allUsers = await getAllUsers();
 
@@ -30,10 +34,10 @@ const login = async (req, res, next) => {
     res.status(200).json({
       status: "success",
       message: "User logged in successfully",
-      data: userWithToken, // includes user info & token
+      userWithToken,
     });
   } catch (error) {
-    next(error); // Let global error handler handle it
+    next(error);
   }
 };
 
